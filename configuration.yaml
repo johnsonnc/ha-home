@@ -1,0 +1,115 @@
+  
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+homeassistant:
+  name: Home
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  elevation: !secret homeassistant_elevation
+  unit_system: imperial
+  time_zone: America/Los_Angeles
+  customize: !include_dir_merge_named customize
+  packages: !include_dir_named packages
+
+
+system_health:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+cover:
+  - platform: myq
+    username: !secret email
+    password: !secret cover_myq_password
+
+august:
+  login_method: email
+  username: !secret email
+  password: !secret august_password
+
+weather:
+  - platform: nws
+    api_key: !secret email
+    station: !secret weather_station_id
+
+zwave:
+  usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_network_key
+
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /config/zigbee.db
+
+media_player:
+  - platform: yamaha_musiccast
+    host: 192.168.1.208
+
+zeroconf:
+
+recorder:
+  db_url: !secret recorder_db_url
+
+ifttt:
+  key: !secret ifttt_key
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-home
+  username: !secret MQTT_username
+  password: !secret MQTT_password
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include_dir_merge_list sensors/
+
+iqvia:
+  zip_code: !secret zip_code
+
+# Convert the Wind Direction from degrees to cardinal
+
+
+camera:
+  - platform: badnest
+
+
+frontend:
+  themes: !include_dir_merge_named themes
+  javascript_version: latest
+
+influxdb:
+  host: 192.168.1.3
+  port: 8086
+  database: home_assistant
+
+# Debug Logging
+logger:
+  default: warning
+#  default: info
+
+tuya:
+  username : !secret tuya_username
+  password: !secret tuya_password
+  platform: "smart_life"
+  country_code: "1"
+
+wwlln:
+
+badnest:
+  user_id: !secret badnest_user_id
+  access_token: !secret nest_access_token
+  region: us
+
+climate:
+  - platform: badnest
+    scan_interval: 10
+
+

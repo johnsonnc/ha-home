@@ -1,0 +1,8 @@
+- platform: here_travel_time
+  api_key: !secret here_api_key
+  origin_latitude: !secret home_lat_enc
+  origin_longitude: !secret home_long_enc
+  destination_latitude: !secret work_lat_enc
+  destination_longitude: !secret work_long_enc
+  name: !secret here_dest_name
+  traffic_mode: true

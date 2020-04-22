@@ -1,0 +1,44 @@
+sensor:
+  - platform: untappd
+    username: johnsonnc
+    id: !secret untappd_ID
+    secret: !secret untappd_Secret
+
+### Templating for the untappd lovelace card (https://sharethelove.io/picture-elements-cards/untappd-card)
+  - platform: template
+    sensors:
+      untappd_badge:
+       value_template: "Recent Badge: {{ states.sensor.untappd_last_badge_johnsonnc.attributes.badge }} (Level {{ states.sensor.untappd_last_badge_johnsonnc.attributes.level }})"
+
+  - platform: template
+    sensors:
+      untappd_beer:
+       value_template: "Recent Beer: {{ states.sensor.untappd_last_check_in_johnsonnc.attributes.beer }} ({{ states.sensor.untappd_last_check_in_johnsonnc.attributes.abv }})"
+
+  - platform: template
+    sensors:
+      untappd_followings:
+#       unit_of_measurement: followers
+       value_template: "{{ states.sensor.untappd_last_check_in_johnsonnc.attributes.followings }}"
+       entity_picture_template: "https://www.shareicon.net/data/32x32/2016/09/23/833751_people_512x512.png"
+
+  - platform: template
+    sensors:
+      untappd_checked:
+#       unit_of_measurement: checkins
+       value_template: "{{ states.sensor.untappd_last_check_in_johnsonnc.attributes.checkins }}"
+       entity_picture_template: "https://www.shareicon.net/data/128x128/2015/05/30/46550_check_32x32.png"
+
+  - platform: template
+    sensors:
+      untappd_total_beers:
+#       unit_of_measurement: beers
+       value_template:  "{{ states.sensor.untappd_last_check_in_johnsonnc.attributes.total_beers }}"
+       entity_picture_template: "https://www.shareicon.net/data/32x32/2016/09/26/834858_drink_512x512.png"
+
+
+  - platform: template
+    sensors:
+      untappd_total_badges:
+       value_template: "{{ states.sensor.untappd_last_check_in_johnsonnc.attributes.total_badges }}"
+       entity_picture_template: "https://www.shareicon.net/data/32x32/2016/07/10/794103_miscellaneous_512x512.png"
