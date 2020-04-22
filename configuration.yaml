@@ -58,12 +58,6 @@ recorder:
 ifttt:
   key: !secret ifttt_key
 
-mqtt:
-  broker: 127.0.0.1
-  port: 1883
-  client_id: home-assistant-home
-  username: !secret MQTT_username
-  password: !secret MQTT_password
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -72,7 +66,7 @@ scene: !include scenes.yaml
 sensor: !include_dir_merge_list sensors/
 
 iqvia:
-  zip_code: !secret zip_code
+  zip_code: !secret zipcode
 
 # Convert the Wind Direction from degrees to cardinal
 
