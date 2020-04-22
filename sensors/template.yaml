@@ -9,7 +9,7 @@
     allergy_forecast_outlook:
       friendly_name: 'Allergy Forecast Outlook'
       value_template: '{{ states.sensor.allergy_forecasted_average.attributes.outlook }}'
-    allergy_forecast_rating:
+    allergy_forecast_season:
       friendly_name: 'Allergy Forecast Season'
       value_template: '{{ states.sensor.allergy_forecasted_average.attributes.season }}'
 
