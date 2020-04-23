@@ -1,0 +1,11 @@
+- platform: unifigateway
+  host: 192.168.1.2
+  username: !secret unifi_username
+  password: !secret unifi_password
+  monitored_conditions:
+    - www
+    - wlan
+    - lan
+    - wan
+    - alerts
+    - firmware
