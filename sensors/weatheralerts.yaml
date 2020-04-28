@@ -1,0 +1,4 @@
+- platform: weatheralerts
+  state: WA
+  zone: 555
+  county: 33
