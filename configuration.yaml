@@ -54,10 +54,18 @@ zeroconf:
 
 recorder:
   db_url: !secret recorder_db_url
+  purge_keep_days: 10
+  commit_interval: 0
 
 ifttt:
   key: !secret ifttt_key
 
+geo_location:
+  - platform: usgs_earthquakes_feed
+    feed_type: 'past_day_all_earthquakes'
+    radius: 500.0
+  - platform: wwln
+    radius: 500.0
 
 group: !include groups.yaml
 automation: !include automations.yaml
