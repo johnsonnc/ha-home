@@ -1,0 +1,29 @@
+sensor:
+  - platform: unifigateway
+    host: 192.168.1.2
+    username: !secret unifi_username
+    password: !secret unifi_password
+    monitored_conditions:
+      - www
+      - wlan
+      - lan
+      - wan
+      - alerts
+      - firmware
+
+  - platform: template
+    sensors:
+      unifi_www_tx:
+        value_template: "{{ states.sensor.unifi_gateway_www.attributes.tx_bytes-r }}"
+  - platform: template
+    sensors:
+      unifi_www_rx:
+        value_template: "{{ states.sensor.unifi_gateway_www.attributes.rx_bytes-r }}"
+  - platform: template
+    sensors:
+      unifi_wan_num_sta:
+        value_template: "{{ states.sensor.unifi_gateway_wan.attributes.num_sta }}"
+  - platform: template
+    sensors:
+      unifi_wan_num_sta:
+        value_template: "{{ states.sensor.unifi_gateway_wan.attributes.num_sta }}"
