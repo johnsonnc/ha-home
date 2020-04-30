@@ -60,8 +60,6 @@ geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 500.0
-  - platform: wwln
-    radius: 500.0
 
 group: !include groups.yaml
 automation: !include automations.yaml
