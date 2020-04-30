@@ -2,8 +2,8 @@
   name: Inciweb
   url: https://inciweb.nwcg.gov/feeds/rss/incidents/
   unit_of_measurement: 'Incidents'
-  radius: 500km
+  radius: 500
 - platform: geo_rss_events
   name: USGS All Earthquakes
   url: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.atom
-  radius: 500km
+  radius: 500

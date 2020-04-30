@@ -33,10 +33,6 @@ august:
   username: !secret email
   password: !secret august_password
 
-weather:
-  - platform: nws
-    api_key: !secret email
-    station: !secret weather_station_id
 
 zwave:
   usb_path: /dev/ttyUSB0
