@@ -38,9 +38,9 @@ zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_network_key
 
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /config/zigbee.db
+#zha:
+#  usb_path: /dev/ttyUSB1
+#  database_path: /config/zigbee.db
 
 media_player:
   - platform: yamaha_musiccast
@@ -51,6 +51,32 @@ zeroconf:
 recorder:
   db_url: !secret recorder_db_url
   purge_keep_days: 3
+  exclude:
+    domains:
+      - device_tracker
+      - media_player
+      - geo_location
+      - zwave
+      - weather
+    entities:
+      - sun.sun
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_10
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_11
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_12
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_14
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_5
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_6
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_7
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_8
+      - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_9
+      - sensor.aeon_labs_zw096_smart_switch_6_previous_reading
+      - sensor.aeon_labs_zw096_smart_switch_6_previous_reading_2
+      - sensor.power_meter_phase1_previous_reading
+      - sensor.power_meter_phase1_previous_reading_13
+      - sensor.power_meter_phase1_previous_reading_2
+      - sensor.power_meter_phase1_previous_reading_3
+      - sensor.power_meter_phase1_previous_reading_4
+      - sensor.power_meter_phase1_previous_reading_15
 
 ifttt:
   key: !secret ifttt_key
