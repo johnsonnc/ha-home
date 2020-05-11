@@ -31,4 +31,4 @@ binary_sensor:
   - platform: bhyve
 
 switch:
-  - platform: byhve
+  - platform: bhyve
