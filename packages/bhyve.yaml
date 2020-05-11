@@ -3,7 +3,7 @@ bhyve:
   password: !secret bhyve_username
 
 sensor:
-  - platform: byhve
+  - platform: bhyve
   - platform: template
     sensors:
       rain_delay_lawn_finishing:
