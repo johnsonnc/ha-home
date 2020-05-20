@@ -63,19 +63,19 @@ zeroconf:
 
 recorder:
   db_url: !secret recorder_db_url
-  purge_keep_days: 1
+  purge_keep_days: 3
   exclude:
     domains:
       - device_tracker
       - media_player
-      - geo_location
+#      - geo_location
       - zwave
-      - weather
-      - sensor
-      - switch
+#      - weather
+#      - sensor
+#      - switch
       - media_player
-      - binary_sensor
-      - light
+#      - binary_sensor
+#      - light
       - camera
     entities:
       - sun.sun
