@@ -15,7 +15,15 @@ homeassistant:
   time_zone: America/Los_Angeles
   customize: !include_dir_merge_named customize
   packages: !include_dir_named packages
-
+  customize_glob:
+    sensor.power_meter_phase3_previous*:
+      hidden: true
+    sensor.power_meter_phase2_previous*:
+      hidden: true
+    sensor.power_meter_phase1_previous*:
+      hidden: true
+    sensor.washer_power_outlet_previous*:
+      hidden: true
 
 system_health:
 
@@ -37,7 +45,10 @@ august:
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_network_key
-
+  device_config_glob:
+    "*_previous*":
+      ignored: true
+      polling_intensity: 0
 #zha:
 #  usb_path: /dev/ttyUSB1
 #  database_path: /config/zigbee.db
@@ -58,6 +69,12 @@ recorder:
       - geo_location
       - zwave
       - weather
+      - sensor
+      - switch
+      - media_player
+      - binary_sensor
+      - light
+      - camera
     entities:
       - sun.sun
       - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_10
@@ -112,7 +129,13 @@ frontend:
 
 # Debug Logging
 logger:
-  default: warning
+  default: debug
+  logs:
+    libopenzwave: critical
+    openzwave: critical
+    homeassistant.components.zwave: critical
+    homeassistant.components.websocket_api: warn
+    
 #  default: info
 
 tuya:
@@ -131,5 +154,4 @@ badnest:
 climate:
   - platform: badnest
     scan_interval: 10
-
 
