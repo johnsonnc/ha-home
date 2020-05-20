@@ -15,6 +15,8 @@ homeassistant:
   time_zone: America/Los_Angeles
   customize: !include_dir_merge_named customize
   packages: !include_dir_named packages
+  internal_url: !secret homeassistant_internalurl
+  external_url: !secret homeassistant_externalurl
   customize_glob:
     sensor.power_meter_phase3_previous*:
       hidden: true
