@@ -88,6 +88,7 @@ recorder:
       - sensor.aeon_labs_zw095_home_energy_meter_gen5_previous_reading_9
       - sensor.aeon_labs_zw096_smart_switch_6_previous_reading
       - sensor.aeon_labs_zw096_smart_switch_6_previous_reading_2
+      - sensor.power_meter_phase3_previous_reading_15
       - sensor.power_meter_phase1_previous_reading
       - sensor.power_meter_phase1_previous_reading_13
       - sensor.power_meter_phase1_previous_reading_2
@@ -129,7 +130,7 @@ frontend:
 
 # Debug Logging
 logger:
-  default: debug
+  default: info
   logs:
     libopenzwave: critical
     openzwave: critical
