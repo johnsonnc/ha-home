@@ -58,6 +58,8 @@ zwave:
 media_player:
   - platform: yamaha_musiccast
     host: 192.168.1.208
+  - platform: dlna_dmr
+    url: http://192.168.1.180:9197/description.xml
 
 zeroconf:
 
